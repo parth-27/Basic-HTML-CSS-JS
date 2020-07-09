@@ -1,0 +1,82 @@
+Users connect to these networks through an Internet Service Provider (ISP). 
+ISPs connect to each other while also avoiding a connection hierarchy through Network Access Points (NAP). 
+
+Whenever a machine is connected to the Internet, it gets an IP address. Our machine/browser makes requests to the server
+and the server respond.
+
+A Server is like a box with an IP address. To elucidate(to give clarifying explanation), a server is like a computer program
+that accepts and responds to requests made by another program, known as a client.
+Any computer that gets information from a server is referred to as a client.
+
+The Reason Our computer is not a server is because we don't have server software running on it but of course, there are ways with
+which we could make our computer serve as server.
+
+IP addresses and TCP (transmission control protocol) are usually grouped together because they work together to establish 
+the rules for how information travels across the internet. While the IP address is the home address of every machine, 
+TCP acts as the delivery service between two systems guiding packets of data from one machine to the other and controlling 
+the size, the rate of data exchange, and network traffic congestion between the client browser and a web server.
+
+Every website has a domain name, which is essentially a human-friendly version of an IP address. 
+The DNS (domain name system) allows machines to look up domain names and associates them with the corresponding IP address 
+that enables the TCP to know where to take the packets of data.
+
+URL (uniform resource locator) gives the specific location of a resource or site on a computer network and specifies 
+how to fetch the site. URLs contain two main parts: the protocol type and the domain name. 
+Protocol type is the first thing displayed in the URL format. Ftp, mailto, and JDBC are three types of protocol, 
+but HTTP protocol is the most common used, especially when referencing web pages. 
+HTTP (hypertext transfer protocol) is the foundation of data communication for the World Wide Web and is the protocol to 
+exchange hypertext. 
+The domain name, which we have already discussed, would consist of what users commonly refer to as the web address
+
+
+So when we search for a website or something, our Internet service provider does a DNS lookup(a domain name service lookup), 
+connects us to a service and we get a response. Our server can return anything back to us. It can return HTML , CSS file ,etc.
+But what’s really cool is that the browser knows how to render our file depending on the file type and content type. 
+e.g (text/html) and because of this, it parses our HTML or our CSS or our javascript or our image file in a way that the computer 
+understands.
+
+These HTML, CSS and image files,  They’re called assets. We can describe these assets as the files that make your front-end look and work great.
+
+Our browser first see the <!Doctype> and understands that its a html file and also understands what version of htmt it is.
+
+Then it goes through you <head></head> tags reading and processing all the information there. We usually put our stylesheets 
+(CSS files) in the header so that we don’t get a FOUC (flash of unstyled content) — 
+that thing where a website first looks ugly before it loads the stylesheet and then, looks decent. 
+We usually put our scripts at the bottom, just before the closing of the <body></body> tags because it helps our website load faster.
+
+
+It’s a good practice to concatenate our files — like put all our css styling in one file and then put all your javascript code 
+in one file as well. This way, we only have to request from our server once for all the styling to load and once for the 
+Javascript to load as well. This is because the browser goes through our code line by line and whenever it sees an asset, 
+it makes a request. And the fewer requests are made to the server, the better. I feel like for development, 
+we can break our styling and scripts into different files for easier navigation and manipulation but when it comes to production, 
+we should concatenate. Also, if these files are minified in production, they become smaller and even easier to manipulate.
+
+Another way that assets can be requested from the server is through Javascript. Javascript does this through a XHR or AJAX request. 
+AJAX means “Asynchronous JavaScript And XML.” It allows webpages to update by transporting data to and fro from the web server. 
+IN AJAX, this process is asynchronous. This means that the processes are independent of time, and they don’t have to consider each other 
+in any way. One process does not have to wait for another process to be over before it begins. 
+This allows for us to update different part of the webpage, without having to load the whole page. 
+So with Ajax, if you send a request to the server, it doesn’t have to await a response before performing other requests.
+
+
+XMLHttpRequest Object (XHR).
+XHR is a JavaScript object that is used to transfer data between a web browser and a web server.
+XHR is often used to request and recieve data for the purpose of modifying a web page.
+The XHR Object is the underlying concept of AJAX and JSON
+XHR which means XMLHttpRequest basically does the same thing as AJAX, 
+but in XHR, javascript sends a request to HTTP and waits for the XML response. 
+They’re both API’s, so requests can be made to and gotten from them the same way we’d access APIs.
+
+Lastly, cookies. A Cookie is basically a giant string of all the information a website has stored on your device.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+How Does the Data Move?
+--> Most of the Data over the Internet moves by packet switching, where data is broken up into small pieces called packets 
+that are delivered to their final destination independently. Once there, they are reassembled into human digestible content 
+such as text, images, or video on a webpage.  Packet switching is more efficient than the little-used and dated process of 
+circuit switching, where temporary circuits form between networks to allow all of the data to pass through at once, 
+often blocking up entire chunks of the network.
+
