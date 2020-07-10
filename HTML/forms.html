@@ -1,0 +1,53 @@
+<!Doctype html>
+
+<html>
+<head>
+    <title>Form in the html</title>
+    <style type = "text/css">
+
+    </style>
+</head>
+<body>
+<form action= "index.html" method = "post" >
+    Username: <input type= "text" name = "username" size = "20" maxlength= "20" value = "Enter your UserName"/>
+    <br>
+    Password : <input type = "password" name= "pwrd">
+    <br>
+    Male : <input type = "radio" name = "sex" value="male">
+    Female : <input type = "radio" name="sex" value="female">
+    other : <input type ="radio" name="sex" value="other">
+    <br>
+    <p>Select the type of language that you would like to learn!!</p>
+    C++ : <input type= "checkbox" name ="language" value= "c++"> <br>
+    C : <input type= "checkbox" name ="language" value= "c"> <br>
+    Java :  <input type= "checkbox" name ="language" value= "java"> <br>
+    HTML :  <input type= "checkbox" name ="language" value= "html"> <br>
+    JavaScript :    <input type= "checkbox" name ="language" value= "javascript"> <br>
+
+    <p>Choose the chapter you want to learn ?</p>
+    <select name ="chapters">
+        <option value = "chp1">Chapter 1</option>
+        <option value = "chp2">Chapter 2</option>
+        <option value = "chp3">Chapter 3</option>
+        <option value = "chp4">Chapter 4</option>
+        <option value = "chp5">Chapter 5</option>
+    </select>
+
+    <p>Give your reviews to the current chapter and suggestion to add something</p>
+    <textarea name ="suggestion" rows="10" cols = "50">
+        Give your suggestion here....
+    </textarea>
+
+    <p>Upload Your files here!!</p>
+    <input type= "file" name= "myfile">
+
+    <input type=  "submit" value= "Submit">
+
+</form>
+</body>
+</html>
+<!-- All the same type buttons should have different values rest of the things can be equal.
+     In the submit button the value is displayed to the user.
+     2 type of methods i.e 1.get and 2. post method.
+     post is most secure method.
+-->
