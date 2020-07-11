@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css">
+  <title>CSS Grid Implicit vs Explicit Grid Tracks!</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+
+  <style>
+    .container {
+      /*when we declared something in css then it will be explicitly declared in the webpage*/
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 200px 400px;   /*here we are creating 2 columns thus we are explicititly creating 2 columns*/
+      /*Row will be created automatically if not delared in css thus they are known as implicitly declared/created  too store the extra data*/
+
+      grid-template-rows: 50px 100px;   /*here we are declaring 2 rows explicitly but due to extra data some rows are created other than this implicitly*/
+
+      grid-auto-rows: 150px 100px;  /*Deciding size of the implictly created rows*/
+    }
+  </style>
+</body>
+
+</html>
