@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other examples of sets</title>
+</head>
+
+<body>
+    <script>
+        const brunch = new Set();
+
+        brunch.add('jon');
+        brunch.add('tokyo');
+        brunch.add('walt');
+
+        const line = brunch.values();
+        console.log(line.next().value);
+        console.log(line.next().value);
+
+        brunch.add('hannah');
+    </script>
+</body>
+
+</html>

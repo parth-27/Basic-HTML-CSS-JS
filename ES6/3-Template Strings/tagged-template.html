@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tagged Template</title>
+  </head>
+  <body>
+    <script>
+      // ...values take the rest of values and put them into the function.
+      function highlight(strings, ...values) {
+        //debugger;     strings array will always be one greater than the array of values.
+        let str = "";
+        strings.map((string, i) => {
+          // array of string is oone greater than array of values so check for undefined in the values
+          str += string + (values[i] || "");    // shortcut for checking.
+        });
+        return str;
+      }
+
+      const name = "Jon";
+      const age = 25;
+      const sentence = highlight`Jon Snow is ${age} years old`;     // function ahead of a string.
+      console.log(sentence);
+    </script>
+  </body>
+</html>

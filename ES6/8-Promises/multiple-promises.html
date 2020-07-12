@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const weather = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ temp: 29, conditions: "Sunny with clouds" });
+        }, 2000);
+      });
+
+      const tweets = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(["I like Cake", "Piazza to"]);
+        }, 500);
+      });
+
+      // in multiple promises the longest one will decide when the result will be shown.
+      Promise.all([weather, tweets]).then((responses) => {
+        const [weatherinfo, tweetinfo] = responses;
+        console.log(weatherinfo, tweetinfo);
+      });
+
+      // Real API
+      const postsPromise = fetch("https://wesbos.com/wp-json/wp/v2/posts");
+      const streetCarsPromise = fetch(
+        "http://data.ratp.fr/api/datasets/1.0/search/?q=paris"
+      );
+
+      Promise.all([postsPromise, streetCarsPromise])
+        .then((responses) => {
+          // we need json with all the apis so map is used.
+          return Promise.all(responses.map((res) => res.json()));
+        })
+        .then((responses) => {
+          console.log(responses);
+        });
+    </script>
+  </body>
+</html>

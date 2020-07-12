@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For of loop</title>
+  </head>
+  <body>
+    <p>Hello i am a paragraph 01</p>
+    <p>Hello i am a paragraph 02</p>
+    <p>Hello i am a paragraph 03</p>
+    <p>Hello i am a paragraph 04</p>
+    <p>Hello i am a paragraph 05</p>
+    <script>
+      const persons = ["Jon", "Dany", "Walkers", "Aegon"];
+
+      // person.entries() will iterate if for us and gives a list of data and index.
+      for (const [i, person] of persons.entries()) {
+        console.log(`${person} is the ${i}th person in the array.`);
+      }
+
+      // when we use arguments object.
+      function addNumbers() {
+        console.log(arguments); // it is arrayish and not regular array. argument is not array.
+
+        let total = 0;
+        for (const num of arguments) {
+          total += num;
+        }
+        console.log(total);
+      }
+
+      addNumbers(10, 456, 16, 456, 96, 63, 5);
+
+      const name = "Jon Snow";
+      for (const char of name) {
+        console.log(char);
+      }
+
+      const ps = document.querySelectorAll("p");
+      // linking click with all the paragraphs.
+      for (const p of ps) {
+        p.addEventListener("click", function () {
+          console.log(this.textContent);
+        });
+      }
+    </script>
+  </body>
+</html>

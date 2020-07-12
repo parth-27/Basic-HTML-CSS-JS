@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance Review</title>
+</head>
+
+<body>
+    <script>
+        /*  eslint-disable */
+        function Dog(name, breed) {
+            this.name = name;
+            this.breed = breed;
+        }
+
+        const snickers = new Dog('Snickers', 'king charlse');
+
+        Dog.prototype.bark = function () {
+            console.log(`My name is  ${this.name}`);
+        };
+
+        snickers.bark();
+    </script>
+</body>
+
+</html>

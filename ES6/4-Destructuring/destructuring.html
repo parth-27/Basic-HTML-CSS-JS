@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        first: "Jon",
+        last: "snow",
+        city: "The last Harbour",
+        country: "Westros",
+        twitter: "@youknownothing",
+      };
+
+      const jon = {
+        first: "Jon",
+        last: "Snow",
+        links: {
+          social: {
+            twitter: "twitter.com",
+            facebook: "facebook.com",
+          },
+          youtube: "youtube.com",
+        },
+      };
+
+      const { first, last } = person; // destructuring. taking first and last in variable name first and last.
+      console.log(first);
+
+      const { twitter: tweet, facebook: fb } = jon.links.social; // renaming them as destructuring.
+      console.log(tweet);
+
+      // setting default using destructuring.
+      const settings = {
+        width: 300,
+        color: "black",
+      };
+
+      const {
+        width = 100,
+        height = 100,
+        color = "blue",
+        fontsize = 25,
+      } = settings;
+
+      console.log(height);
+
+      // object destructuring with variable renaming & setting default values;
+      const { w: wid = 100, h: hei = 200 } = { w: 800 };
+      console.log(wid);
+      console.log(hei);
+    </script>
+  </body>
+</html>

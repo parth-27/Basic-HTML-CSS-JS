@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array methods</title>
+  </head>
+  <body>
+    <div class="people">
+      <p>Jon</p>
+      <p>Tyrion</p>
+      <p>Dany</p>
+    </div>
+
+    <script>
+      // arrayish means it is like array.
+      const people = document.querySelectorAll("p");
+
+      // array.from it takes 2 argument a map
+      const peopleArray = Array.from(people, (person) => {
+        console.log(person);
+        return person;
+      }); // converting into the array from arrayish i.e nodelist.
+      peopleArray.map((people) => console.log(people.textContent));
+
+      //function
+      function sumAll() {
+        // arguments is a nodelist so convert it to a array.
+        let sum = 0;
+        Array.from(arguments, (arg) => (sum += arg));
+        console.log(sum);
+      }
+
+      sumAll(2, 45, 646, 32, 621, 6, 32, 953, 841);
+
+      // array.of()
+      const ages = Array.of(12, 45, 65, 21); // creating an array.
+      console.log(ages);
+    </script>
+  </body>
+</html>

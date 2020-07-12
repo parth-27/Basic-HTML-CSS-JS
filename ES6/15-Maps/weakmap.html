@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weak Map</title>
+</head>
+
+<body>
+    <script>
+        // weak map don't have size, not iterable and garabage colleted if null values in it.
+        let dog1 = { name: 'Snickers' };
+        let dog2 = { name: 'Sunny' };
+
+        const strong = new Map();
+        const weak = new WeakMap();
+
+        strong.set(dog1, 'Snickers is the best!');
+        weak.set(dog2, 'Sunny is the 2nd best!');
+
+        console.log(dog1);
+        console.log(dog2);
+
+        dog1 = null;
+        dog2 = null;
+
+        console.log(dog1);
+        console.log(dog2);
+    </script>
+</body>
+
+</html>

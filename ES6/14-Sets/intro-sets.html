@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sets in ES6</title>
+</head>
+
+<body>
+    <script>
+        // set in es6 is like unique array.
+        const people = new Set();
+        people.add('jon');
+        people.add('danny');
+        people.add('walt');
+
+        console.log(people);
+        console.log(people.size);
+
+        people.delete('walt');  // deleting from set.
+        console.log(people);
+        // set.clear() will give us an empty set.
+
+
+        for (const person of people) {
+            console.log(person);
+        }
+
+        const students = new Set(['scott', 'jean', 'logan']);
+        // we can also pass array in the Set()
+        // students.has('scott');  returns true.
+    </script>
+</body>
+
+</html>

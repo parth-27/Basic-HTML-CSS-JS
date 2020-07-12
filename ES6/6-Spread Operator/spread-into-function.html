@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spread into Function</title>
+  </head>
+  <body>
+    <script>
+      const inventors = ["Einstein", "Newton", "Galileo"];
+      const newInventors = ["Musk", "Jobs", ...inventors];
+      // inventors.push.apply(...newInventors); other way to combine two arrays.
+      console.log(newInventors);
+
+      const name = ["Jon", "Snow"];
+      function sayHi(first, last) {
+        alert(`hello ${first} ${last}`);
+      }
+
+      sayHi(...name); // spreading into the function.
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Looping</title>
+  </head>
+  <body>
+    <script>
+      const persons = ["Jon", "Dany", "Walkers", "Aegon"];
+
+      for (let i = 0; i < persons.length; i++) {
+        console.log(persons[i]);
+      }
+
+      // we cant use continue and break in foreach loop.
+      persons.forEach((person) => {
+        console.log(person);
+      });
+
+      // this loop iterate over each and everything of the array. it will iteratte over an function  also if added later.
+      for (const index in persons) {
+        console.log(persons[index]);
+      }
+
+      //for off loop-- we can use with anytype of data except objects.
+      // we can use continue and for loop in this loop.
+      for (const person of persons) {
+        console.log(person);
+      }
+
+      // forin will give us index while for of will give us actual value.
+    </script>
+  </body>
+</html>

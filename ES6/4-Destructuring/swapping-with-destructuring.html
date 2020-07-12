@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swapping with Destructuring</title>
+  </head>
+  <body>
+    <script>
+      let inRing = "Hulk";
+      let onSide = "Rock";
+
+      console.log(onSide, inRing);
+      [onSide, inRing] = [inRing, onSide];
+
+      console.log(onSide, inRing);
+    </script>
+  </body>
+</html>

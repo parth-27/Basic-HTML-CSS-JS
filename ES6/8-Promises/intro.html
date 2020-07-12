@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises</title>
+  </head>
+  <body>
+    <script>
+      // Promise is something that happen between now and at the end of time.
+      console.log("Getting Codeforces API");
+      const contestsPromise = fetch("https://codeforces.com/api/contest.list");
+      console.log(contestsPromise); // fetch will give you promise.
+
+      // getting data from the promise using then method.
+      // .then only fires when a promise successfully comes back if not we need a catch block for it.
+      contestsPromise.then((data) =>
+        data
+          .json()
+          .then((data) => console.log(data))
+          .catch((err) => console.log(err))
+      );
+    </script>
+  </body>
+</html>

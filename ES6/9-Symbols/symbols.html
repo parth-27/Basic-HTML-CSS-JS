@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symbols</title>
+</head>
+
+<body>
+  <script>
+    // Symbol helps us avoid naming collisions.
+    // Symbol are not iterable.
+    const jon = Symbol('Jon'); // "Jon" is descriptor for const jon.
+    const person = Symbol('Jon');
+
+    console.log(jon == person); // false
+    console.log(jon === person); // false
+
+    // when we the key to be unique in object than use symbol.
+    const classRomm = {
+      [Symbol('Mark')]: ['Mark', 'Male', 2],
+      [Symbol('Mark')]: ['Mark', 'Male', 3],
+      [Symbol('Logan')]: ['Logan', 'Male', 4],
+    };
+
+    // for getting all the symbols as they are not iterable.
+    const sym = Object.getOwnPropertySymbols(classRomm);
+    console.log(sym);
+
+    const data = sym.map(s => classRomm[s]);
+    console.log(data);
+  </script>
+</body>
+
+</html>

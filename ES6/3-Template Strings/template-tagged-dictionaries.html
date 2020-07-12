@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Tags</title>
+  </head>
+  <body>
+    <div class="bio"></div>
+
+    <script>
+      const dic = {
+        HTML: "Hyper Text Markup Language",
+        CSS: "Cascading Style Sheet",
+        JS: "JavaScript",
+      };
+
+      function addAbbreviation(strings, ...values) {
+        const abbreviated = values.map((value) => {
+          if (dic[value]) {
+            return `<abbr title="${dic[value]}">${value}</abbr>`;
+          }
+          return value;
+        });
+
+        return strings.reduce((sentence, string, i) => {
+          return `${sentence}${string}${abbreviated[i] || ""}`;
+        },'');
+      }
+
+      const first = "Jon";
+      const last = "Snow";
+
+      const sentence = addAbbreviation`hello my name is ${first} ${last} and I love to code ${"HTML"}, ${"CSS"} and ${"JS"}`;
+
+      const bio = document.querySelector(".bio");
+      const p = document.createElement("p");
+      p.innerHTML = sentence;
+      bio.appendChild(p);
+    </script>
+  </body>
+</html>

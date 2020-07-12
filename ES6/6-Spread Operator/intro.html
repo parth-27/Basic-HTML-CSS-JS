@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The ...Spread Operator</title>
+  </head>
+  <body>
+    <script>
+      // spread operator takes every single item from the iterable and apply to the containing array or any element.
+      const featured = ["Deep Dish", "Pepperoni", "Hawaiian"];
+      const specialty = ["Meatzza", "Spicy Mama", "Margherita"];
+
+      // adding featured + veg + specialty to pizzas array.
+      const pizzas = [...featured, "veg", ...specialty];
+      const fridayPizzas = [...pizzas]; // coppying an array can also be done with the help of spread operator.
+      //const fridayPizzas = pizzas; this will pass the reference to fridayPizzas and not copy the array.
+
+      const deepDish = {
+        pizzaName: "Deep Dish",
+        size: "Medium",
+        ingredients: ["Marinara", "Italian Sausage", "Dough", "Cheese"],
+      };
+    </script>
+  </body>
+</html>

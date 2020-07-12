@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weak Sets</title>
+</head>
+
+<body>
+    <script>
+        // weak sets is just like sets except there are some limitations.
+        // weaksets can only contain objects in it and not anything else.
+        // weaksets don't have .clear method. they have garbage collection.
+
+        let dog1 = { name: 'snickers', age: 3 };
+        let dog2 = { name: 'rocky', age: 5 };
+
+        const weak = new WeakSet([dog1, dog2]);
+
+        console.log(weak);
+        dog1 = null;    // deleting the object by garbage collection as we have set it to null.
+        console.log(weak);
+    </script>
+</body>
+
+</html>

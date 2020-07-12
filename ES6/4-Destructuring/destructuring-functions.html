@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring Functions</title>
+  </head>
+  <body>
+    <script>
+      function currency(amount) {
+        const converted = {
+          USD: amount * 0.76,
+          GPB: amount * 0.53,
+          AUD: amount * 1.01,
+          MEX: amount * 13.3,
+        };
+        return converted;
+      }
+
+      const { AUD, MEX, USD, GPB } = currency(100);
+      console.log(AUD, MEX, USD, GPB);
+
+      // by writing arguments of function in {} we are destructurring it so order of it won't matter.
+      // last {} is if no object is passed during the function call than it will reference to an empty object.
+      function bill({ total, tip = 0.15, tax = 0.13 } = {}) {
+        return total + total * tip + tax * tax;
+      }
+
+      console.log(bill({ total: 200, tax: 0.13, tip: 0.2 }));
+    </script>
+  </body>
+</html>

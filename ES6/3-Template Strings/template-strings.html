@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strings</title>
+  </head>
+
+  <body>
+    <script>
+      // we can write js inside {} in template strings.
+      const song = {
+        name: "Dying to live",
+        artist: "Tupac",
+        featuring: "Biggie Smalls",
+      };
+
+      const markup = `
+    <div class="song">
+      <p>
+        ${song.name} — ${song.artist}
+        ${song.featuring ? `(Featuring ${song.featuring})` : ""}
+      </p>
+    </div>
+  `;
+
+      document.body.innerHTML = markup;
+
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "Hugo", age: 8 },
+        { name: "Sunny", age: 1 },
+      ];
+
+      const markup = `
+    <ul class="dogs">
+      ${dogs
+        .map(
+          (dog) => `
+        <li>
+          ${dog.name}
+          is
+          ${dog.age * 7}
+        </li>`
+        )
+        .join("")}
+    </ul>
+  `;
+      document.body.innerHTML = markup;
+
+      const beer = {
+        name: "Belgian Wit",
+        brewery: "Steam Whistle Brewery",
+        keywords: ["pale", "cloudy", "spiced", "crisp"],
+      };
+
+      function renderKeywords(keywords) {
+        return `
+      <ul>
+        ${keywords.map((keyword) => `<li>${keyword}</li>`).join("")}
+      </ul>
+    `;
+      }
+
+      const markup = `
+    <div class="beer">
+      <h2>${beer.name}</h2>
+      <p class="brewery">${beer.brewery}</p>
+      ${renderKeywords(beer.keywords)}
+    </div>
+  `;
+
+      document.body.innerHTML = markup;
+    </script>
+  </body>
+</html>

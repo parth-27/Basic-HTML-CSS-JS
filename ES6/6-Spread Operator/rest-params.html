@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rest Params</title>
+  </head>
+  <body>
+    <script>
+      // rest params and spread looks exactly same but are exactly opposite to each other.
+      function convertCurrency(rate, ...amounts) {
+        return amounts.map((amount) => amount * rate);
+      }
+
+      console.log(convertCurrency(1.54, 10, 23, 52, 1, 56));
+
+      // rest params when destructuring.
+      const runner = ["Jon Snow", 123, 5.5, 5, 3, 6, 90];
+
+      const [name, id, ...runs] = runner;
+      console.log(runs);
+    </script>
+  </body>
+</html>

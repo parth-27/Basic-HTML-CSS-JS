@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring Arrays</title>
+  </head>
+  <body>
+    <script>
+      // destructuring from the objects and maps we use {} brackets but while destructuring  from arrays and sets we use []
+      const details = ["Jon Snow", 25, "King of Westoros"];
+      const [name, age, role] = details;
+      console.log(name);
+
+      const balls = "Baskeball,VolleyBall,FootBall,hey,hello";
+      const [basket, volley, foot] = balls.split(",");
+      console.log(basket, volley, foot);
+
+      const team = ['Jon','Terion','Dany','Sansa','Arya'];
+      const [captain,assistant,...players] = team;  // here we have used the rest operator.
+    </script>
+  </body>
+</html>
