@@ -1,0 +1,73 @@
+<!Doctype html>
+
+<html>
+<head>
+    <title>Arrays in JavaScript</title>
+</head>
+<body>
+<script type= "text/javascript">
+    //creating an array. Arrays are objects thus they have properties and methods.
+    var languages = new Array("C","Java","PHP","JavaScript");
+    document.write(languages[3]);
+
+    //other way to create an array.
+    var things = new Array(3);
+    things[0] = 1;
+    things[1] = 2;
+    things[2] = 3;
+
+    //creating an empty array that can change the size dynamically.
+    var fruits = new Array();
+    fruits[0] = "apple";
+    fruits[1] = "orange";
+    fruits[2] = "grapes";
+
+    //concat method of array.
+    document.write(fruits.length);
+    var concatMethod = languages.concat(fruits);
+    document.write(concatMethod[3]);
+
+    //join method of the array. It forms a string with , as a delimeter.
+    var string1 = languages.join();
+    document.write("<br>"+string1);
+    var string2 = languages.join("-");
+    document.write("<br>"+string2);
+
+    //pop of the array removes the last element of the array.
+    languages.pop();
+    var string3 = languages.join("_");
+    document.write("<br>"+string3);
+
+    //reverse method reverses the array.
+    fruits.reverse();
+
+    // push method add element at the end of the array.
+    fruits.push("pineapple","custardapple");
+
+    //sort method sorts in alphabetical order.
+    fruits.sort();
+
+    //adding element using loop.
+    var pie = prompt("Enter your name","Enter text here");
+    document.write("Hello" + pie);
+
+    var looping = new Array(3);
+    for (i=0;i<looping.length;i++)
+    {
+        looping[i] = prompt("Enter your Element " + i ,"");
+    }
+
+    //here number doesn't add it just concat with one other.
+    document.write(looping[0]+looping[1]+looping[2]);
+
+    //----------------------------------------------------
+    //Associative arrays.
+    var clg = new Array();
+    clg["ahmedabad"] = "Ahmedabad University";
+    clg["food"] = "Maneck Chowk";
+    clg["place"] = "RverFront";
+
+    document.write("Best place to do time pass in ahmedabad is " + clg["place"]);
+</script>
+</body>
+</html>

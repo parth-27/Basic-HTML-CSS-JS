@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind Call and Apply</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+    <p>I am a paragraph</p>
+    <script>
+        const person = {
+            name: "Scott",
+            sayHi: function () {
+                console.log(`hey ${this.name}`);
+            }
+        };
+
+        const jeniffer = { name: "Jeniffer" };
+
+        // we can use .bind() to change the value of this keyword or what the this is bind to.
+        //const sayHi = person.sayHi.bind(person);     // binding to the person.
+        const sayHi = person.sayHi.bind(jeniffer);      //  binding to the jeniffer.
+        console.log(sayHi());
+
+
+        // By calling bind against the querySelector , we say $ function is run, use document as the this value
+        const $ = document.querySelector.bind(document);
+        console.log($ === document.querySelector);
+
+        console.log($('p'));
+
+        const bill = {
+            total: 2000,
+            calculate: function (rate) {
+                return this.total + (this.total * rate);
+            },
+            describe(mealType, drinkType, taxRate) {
+                console.log(`Your meal of ${mealType} with a drink of ${drinkType} was ${this.calculate(taxRate)}`);
+            }
+        };
+
+        const total = bill.calculate(0.13);
+        console.log(total);
+
+        const calc = bill.calculate.bind({ total: 500 }, 0.13);     // rate = 0.13.     bind returns the function
+        console.log(calc());
+
+        // call works same as bind but they call the function for us.
+        const total2 = bill.calculate.call({ total: 500 }, 0.13);   // call will call the function.
+        console.log(total2);
+
+        // apply will take the argument in the form of array.
+        const total3 = bill.calculate.apply({ total: 500 }, [0.13]);
+        console.log(total3);
+
+
+        const myMeal = bill.describe.call(bill, 'pizza', 'beer', 0.13);
+        console.log(myMeal);
+        const myMeal2 = bill.describe.apply(bill, ['pizza', 'beer', 0.13]);
+        console.log(myMeal2);
+    </script>
+</body>
+
+</html>

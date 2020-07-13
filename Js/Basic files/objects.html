@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+    <script src="https://unpkg.com/lodash">
+        // for using the library functions.
+    </script>
+
+    <script>
+        // object is the building block of js. mostly js is based on objects.
+        // object is used where the order of the property doesn't matter.
+
+        const age = 19;
+
+        // other method to create object
+        const person2 = new Object({age:age,name:"parth"});
+
+        
+
+        const person = {
+            age,    // when variable and properties are same.
+            name : "parth",
+            'cool-dude':true,
+            '777':true,
+            clothing : {
+                shirts : 5,
+                pants: 5,
+            },
+            greet(greeting = "hey")
+            {
+                return `${greeting} ${this.name}`;
+            }
+        };
+        person.job = "Web Developer";   // instead of const object we can change its property but its binding can't be change.
+        console.log(person);
+
+        // for making object immutable freeze that object.
+        const froozePerson = Object.freeze(person);     // now nothing can be change of froozePerson.
+        froozePerson.age = 100;
+        console.log(froozePerson);
+
+        // accessing properties of the object.
+        console.log(person.job);
+        const check = prompt('What property do you want to check?');
+        console.log(person[check]);     // using variable to get the property.
+
+
+        console.log(person.greet()); 
+
+        //object are passed by reference so can't compare with === operator.        
+
+        const p1 = {
+            first:"parth",
+            last:"patel",
+            clothing:{
+                shirts:10,
+                pants:2
+            }
+        };
+
+        const p2 = {
+            first:"parth",
+            last:"patel"
+        };
+
+        console.log(p1===p2);       // here we are comparing reference of the 2 objects so answer will be false.
+
+        // p3 is just pointing to the p1. It is same for objects,maps,sets and arrays.
+        const p3 = p1;  // creating the variable which references the orignal variable/object so changing its property also changes the orignal properties.
+        p3.first = "Scott"
+        console.log(p3.first);
+        console.log(p1.first);
+
+        const p4 = {...p1};     // copying the object p1 using spread operator.
+
+
+        //other method to copy a object
+        
+        
+        const p5 = Object.assign({},p1);    // copy of p1
+
+        // both the above method to create copy will create a copy and applicable to one level deep only i.e shallow copy.
+
+        p5.clothing.shirts = 100;
+        console.log(p1);    // shirts of p1 will also change because it is 2 level deep.
+
+
+        // For Creating a deep clone of the object we use a Utility library,lodash.
+
+        const p6 =  _.cloneDeep(p1);    // deep cloning of p1 using lodash.
+        
+        p6.clothing.pants = 50;
+        console.log(p6);
+        console.log(p1);
+
+        // ... spread operator can be used for merging two objects. If the object we are merging contains same values than the later one will overwrite the first one.
+
+        const languages = {
+            first : "C++",
+            second : "Python",
+            Third : "JS"
+        }
+
+        const frameworks = {
+            JS : "React",
+            Python : "Django",
+            Third : "Java",
+        }
+
+        const merge = {...languages,...frameworks};
+        console.log(merge);
+
+        // passing a object,arrays in the function than the original objects/array also changes because they are passed by reference.
+        function change(first)
+        {
+            first.first = "C";
+        }
+
+        change(languages)
+        console.log(languages);
+    
+    
+    </script>
+</body>
+</html>

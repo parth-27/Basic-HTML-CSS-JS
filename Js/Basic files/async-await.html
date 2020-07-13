@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+    <script>
+        function wait(ms = 0)
+        {
+            return new Promise(resolve => {
+                setTimeout(resolve,ms);
+            });
+        }
+
+        async function go(){
+            // await will pause the function until the promise has been resolve.
+            console.log("Starting");
+            await wait(2000);   // await is only valid and use with async functions.
+            console.log("running");
+            await wait(200);
+            console.log("ending");
+        }
+
+        function makePizza(toppings) {
+            return new Promise(function (resolve, reject) {
+                // reject if people try with pineapple
+                if (toppings.includes('pineapple')) {
+                    reject('Seriously? Get out 🍍');
+                }
+                const amountOfTimeToBake = 500 + (toppings.length * 200);
+
+                // wait for one second.
+                setTimeout(function () {
+                    // when we are ready we can resolve the promise.
+                    resolve(`pizza with ${toppings.join(' ')} toppings is ready`);
+                }, amountOfTimeToBake);
+
+                // if something is wrong than we can reject the promise.
+            });
+        }
+
+        async function dinner(){
+            //const pizza1 = await makePizza(['pepperoni']);  // for getting the data from the promise you must await the promise.
+            //const pizza2 = await makePizza(['pepperoni','mushrooms']);
+            //console.log(pizza1);
+            //console.log(pizza2);
+
+            const pizzaPromise1 = makePizza(['pepperoni']);
+            const pizzaPromise2 = await makePizza(['pepperoni','mushrooms']);
+
+            const [pep,mush] = await Promise.all([pizzaPromise1,pizzaPromise2]);
+            console.log(pep,mush);
+        }
+
+        dinner();
+
+
+        // // function declaration
+        // async function fd() {}
+
+        // // arrow function
+        // const arrofn = async() => {}
+
+        // // call back function
+        // window.addEventListener('click',async function(){});
+
+        // // methods
+        // const person = {
+        //     // method
+        //     hi:async function(){
+
+        //     },
+        //     // method shorthand
+        //     async sayHii(){
+
+        //     },
+        //     // function property
+        //     sayHey : async () => {
+
+        //     }
+        // };
+
+
+    </script>
+</body>
+</html>

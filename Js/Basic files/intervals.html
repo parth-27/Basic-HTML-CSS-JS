@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timers and Intervals</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+    <script>
+        // timeout or interval won't run immediately.
+        function buzzer()
+        {
+            console.log("Time Out");
+        }
+
+        // first argument is callback function and other argument is time in milliseconds.
+        setTimeout(buzzer,500);
+
+
+        // Below lines of code show the Asynchronous nature of javascript.
+        // it will display first and then it will run the setTimeout function.
+        console.log("Start");
+        setTimeout(buzzer,500);
+        console.log("End");
+
+
+        const b = setInterval(buzzer,1000);    // it runs every 100ms of time.
+
+        function setImmediateInterval(funcToRun,ms)
+        {
+            // call the function immediately.
+            funcToRun();
+            
+            // run to every ms second.
+            return setInterval(funcToRun,ms);
+        }
+
+        setImmediateInterval(buzzer,100);
+
+
+        // for stopping any timer  you have save the reference.
+        // always save the reference to a variable for stopping the timer.
+        function destroy()
+        {
+            document.body.innerHTML = `<p> Destroy </p>`;
+        }
+        
+        const bomb = setTimeout(destroy,5000);  // getting the reference of the timer.
+
+        window.addEventListener('click',function(){
+            console.log("You stopped the timer.!!")
+            clearTimeout(bomb);     // pass the reference of the timer to stop the timer from running.
+            setTimeout(clearInterval(b),1000);
+        });
+
+    </script>
+</body>
+</html>

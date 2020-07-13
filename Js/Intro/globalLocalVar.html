@@ -1,0 +1,43 @@
+<!Doctype html>
+
+<html>
+<head>
+    <title>Global and Local Variables in JavaScript</title>
+</head>
+<body>
+<script type = "text/javascript">
+// here the variable girl is the global vairable and it will be available throughout the script tag.
+    var girl = "chrissy";
+
+function call() {
+// here the girl variable is local variable which is available only in the function.
+    var girl = "shirley";
+    document.write(girl);
+}
+call();
+document.write(girl);
+    switch(girl)
+    {
+        case "chrissy":
+            document.write(girl + " is an hot american singer!!!");
+            break;
+        case "shirley":
+            document.write(girl + " is an hot indian singer!!!");
+            break;
+        default :
+            document.write("No girls selected");
+            break;
+    }
+
+    document.write("<br>");
+    for (x=1;x<5;x++)
+    {
+        for (y=x;y<5;y++)
+            document.write("*");
+        document.write("<br>");
+    }
+// while and do while are just same as other languages loop.
+// Everything else like if-else statement, operators are same just like other languages.
+</script>
+</body>
+</html>

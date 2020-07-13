@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Filter and Reduce Exercise</title>
+    <link rel="stylesheet" href="../../base.css">
+</head>
+<body>
+    <script>
+        // grab everything from any web page 
+        // and count how many times each letter and number occurs.
+
+        let text = `Make Codeforces not Coronaforces
+In English По-русски
+black__ | Logout
+
+    
+HOMETOPCONTESTSGYMPROBLEMSETGROUPSRATINGAPICALENDARHELP10 YEARS! 
+
+
+  
+→ Pay attention
+Before contest
+Educational Codeforces Round 88 (Rated for Div. 2)
+28:48:01
+  
+→ black__
+
+black__
+User''s contest rating in Codeforces communityRating: 717
+User''s contribution into Codeforces communityContribution: 0
+Settings
+Blog
+Teams
+Submissions
+Talks
+Contests
+
+  
+→ Top rated
+#	User	Rating
+1	MiFaFaOvO	3681
+2	Um_nik	3544
+3	maroonrk	3431
+4	tourist	3409
+5	apiadu	3397
+6	300iq	3317
+7	ecnerwala	3260
+7	Benq	3260
+9	LHiC	3229
+10	TLE	3223
+Countries | Cities | Organizations	View all →
+  
+→ Top contributors
+#	User	Contrib.
+1	Errichto	194
+2	antontrygubO_o	191
+3	vovuh	178
+4	pikmike	174
+5	tourist	166
+6	McDic	164
+6	Um_nik	164
+8	ko_osaga	163
+9	Radewoosh	162
+10	300iq	156
+View all →
+  
+→ Find user
+Handle: 
+  
+→ Recent actions
+srijith1402 → Clarification regarding upper_bound() and lower_bound().   New comment(s)
+venkycodes → Reason for skipping system testing.   New comment(s)
+ilian04 → Codeforces Round #645 (Div. 2) Editorial   New comment(s)
+Harbour.Space → Interview with Mike Mirzayanov, ask anything!   New comment(s)
+MiptLited → Join the online Moscow Trainings Open Contest on May, 31   New comment(s)
+dev_ankitp → All CSES Problems Editorial [ONGOING]   New comment(s)
+zeddie → Infinite loop problem   New comment(s)
+sirAdarsh → What's wrong in this Digit DP soution   New comment(s)
+nik1996 → Precision issues in sqrt() function of C++   New comment(s)
+Ahmed_Hussein_Karam → Problem solving Training (by Mohamed Ayman)   New comment(s)
+Stepavly → Codeforces Round #644 (Div. 3) Editorial   New comment(s)
+Alexdat2000 → Codeforces Round #645 (Div. 2)   New comment(s)
+pikmike → Educational Codeforces Round 33 Editorial   New comment(s)
+LIFE_GOES_ON → Help   New comment(s)
+MikeMirzayanov → Codeforces: Soon We Will Change the Rating Calculation for New Accounts   New comment(s)
+ProgSlacking → Codeforces Round #641 Editorial   New comment(s)
+Spheniscine → Notes on FFT / NTT, and the "ultimate" NTT with modulus > 9 * 10^18   Text created or updated
+imtinanjibon → How can i find editorial of previous contest?   New comment(s)
+_chandler_ → Don't let CF Ratings be a Joke!   New comment(s)
+NBAH → Codeforces Round #367 (Editorial)   New comment(s)
+MikeMirzayanov → Rule about third-party code is changing   New comment(s)
+pritishn → How to solve this question using DP?   Text created or updated
+SecondThread → Why problem writers should stop saying “It is guaranteed that”   New comment(s)
+FatalEagle → 2020 Canadian Computing Olympiad Mirror   Text created or updated
+striver_79 → YouTube Channel for Video Editorials for Every(Almost) Contest   Text created or updated
+Detailed →
+ILIAN04BLOGTEAMSSUBMISSIONSGROUPSCONTESTSPROBLEMSETTING
+ilian04's blog
+Codeforces Round #645 (Div. 2) Editorial
+
+By ilian04, 3 days ago, translation, In English, Attach this blog to some contest as a resource
+This is our first contest for the three of us (Alexdat2000, ilian04, Sevlll), so we would like to share our impressions of creating this contest. Check it if you want to!
+
+ROUND LOG
+And, of course, here's the tutorial of the round.
+
+1358A - Park Lighting
+Идея: Alexdat2000
+
+Picture
+Tutorial
+Solution
+1358B - Maria Breaks the Self-isolation
+Идея: ilian04
+
+Picture
+Tutorial
+Solution
+1358C - Celex Update
+Идея: ilian04
+
+Picture
+Tutorial
+Solution
+1358D - The Best Vacation
+Идея: Sevlll
+
+Picture
+Tutorial
+Solution
+1358E - Are You Fired?
+Идея: Sevlll и ilian04
+
+Picture
+Tutorial
+Solution
+1358F - Tasty Cookie
+Идея: Sevlll и ilian04
+
+Picture
+Tutorial
+Solution by Alexdat2000
+Solution by Alivk06 (much shorter)
+Thank you, everyone, for participating in the round! We hope you've raised your rating! And if you haven't, don't be sad, you'll do it!
+
+ Tutorial of Codeforces Round #645 (Div. 2)
+    
+Vote: I like it+116Vote: I do not like itAdd to favourites
+Author ilian04Publication date 3 days agoComments 215
+Comments Comments (215)
+Write comment?
+
+imachug
+20 hours ago, # | Add to favourites← Rev. 3    Vote: I like it +76 Vote: I do not like it
+Разбор на русском / Russian tutorial
+Another solution to E which seems simpler to me.
+
+Let's call the value of all elements in the second half of the array $$$x$$$.
+
+Let $$$s_k(i) = a_i + a_{i+1} + \ldots + a_{i+k-1}$$$ — the reported incomes.
+
+Pretend there exists such a $$$k$$$ that $$$k\le\tfrac{n}{2}$$$. Consider the following reported incomes: $$$s_k(i)$$$ и $$$s_k(i+k)$$$. Notice that if we double $$$k$$$, the $$$i$$$-th reported income will be equal to $$$s_{2k}(i) = s_k(i)+s_k(i+k)$$$. $$$s_k(i)>0$$$ and $$$s_k(i+k)>0$$$ imply $$$s_{2k}(i)>0$$$. It means that after doubling $$$k$$$, the new value will still be correct. So let's search for such $$$k$$$ that $$$k > \frac{n}{2}$$$.
+
+As $$$k > \frac{n}{2}$$$, then $$$i + k > \frac{n}{2}$$$ holds for all $$$i$$$. It means that all numbers to the right of $$$[i,\ \ldots,\ i + k - 1]$$$ are equal to $$$x$$$.
+
+Notice that if $$$x \ge 0$$$ and some $$$k$$$ is correct, then $$$k + 1$$$ is correct as well, because $$$s_{k+1}(i) = s_{k}(i) + x \ge s_k > 0$$$. So if $$$x \ge 0$$$, it's enough to check $$$k = n$$$.
+
+If $$$x < 0$$$, we do the following. For all $$$i$$$ we find such numbers $$$p$$$ that $$$s_p(i) > 0$$$. Notice that if $$$s_p(i) > 0$$$, then $$$s_{p-1}(i) = s_p(i) + (-x) > s_p(i) > 0$$$. It means that if $$$p$$$ works, then $$$p-1$$$ works as well, so, actually $$$p$$$ can be any number from $$$1$$$ to some limit $$$t[i]$$$. It's easy to find $$$t[i]$$$ using prefix sums array and binary search in $$$\mathcal{O}(\log n)$$$, or use a formula (increasing $$$p$$$ by $$$1$$$ decreases the sum by $$$-x$$$) in $$$\mathcal{O}(1)$$$. If $$$s_p(i)$$$ doesn't hold for any $$$p$$$, assume $$$t[i] = 0$$$.
+
+Finally, notice that $$$k$$$ is a correct answer if and only if $$$s_k(i) > 0$$$ holds for all $$$i$$$ from $$$0$$$ to $$$n-k$$$, or, using the precalculated array, $$$k \le t[i]$$$ for all $$$i$$$ from $$$0$$$ to $$$n-k$$$. It means we can just loop through $$$k$$$ from $$$n$$$ to zero and check if $$$k \le \min t[0,\ \ldots,\ n-k]$$$, maintining the current minimum. If the inequality holds, we output $$$k$$$ as an answer. If it doesn't hold for any $$$k$$$, we output $$$-1$$$.
+
+The overall complexity is $$$\mathcal{O}(n \log n)$$$ or $$$\mathcal{O}(n)$$$, depending on $$$t[i]$$$ calculation implementation.
+
+C++
+Python
+→ Reply
+
+architrungta120
+16 hours ago, # ^ | Add to favourites  Vote: I like it +14 Vote: I do not like it
+This is really cool. I tried establishing connections between k and k+1, never thought there would exist something between k and 2k.
+
+→ Reply
+
+striver_79
+15 hours ago, # ^ | Add to favourites  Vote: I like it +8 Vote: I do not like it
+Problem D Video editorial. Link
+
+→ Reply
+
+tushar__2019
+new, 7 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+Nice editorial bro :-D
+
+→ Reply
+
+Sudeep_423
+new, 5 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+(https://codeforces.com/contest/1358/submission/81578791) Please explain where i am wrong.
+
+→ Reply
+
+trying_to_learn_coding
+new, 2 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+use lower_bound instead of upper_bound. https://codeforces.com/contest/1358/submission/81589987
+
+→ Reply
+
+Aimless_Bot
+15 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+For E why we cann't do k = n and check sum is positive or not? If positive then print k else -1
+
+→ Reply
+Badge of honor for supporting Codeforces on its 10th anniversary
+spookywooky
+14 hours ago, # ^ | Add to favourites  Vote: I like it +10 Vote: I do not like it
+I can look like -1 -1 -1 5 -1 -1 -1
+
+→ Reply
+
+throwawayatcoder
+14 hours ago, # ^ | Add to favourites  Vote: I like it +35 Vote: I do not like it
+Another explanation for E:
+
+Case 1: If total of all N elements is greater than 0, report N.
+
+Case 2: If X >= 0, report -1. Because assume for the sake of contradiction some K works. Cover N with non-overlapping windows of size K until there are only X's remaining. Since each of these windows have positive sum and the uncovered X's are all >= 0, the total is greater than 0, which is a contradiction (since we would've returned in case 1 already)
+
+Case 3: If X < 0, then K must be greater than N / 2 or else it will have a window of all X which are negative. This means the window must start in the front half and end in the second half. This leads to some easy formulas.
+
+For some K, for all 0 <= i <= N - K, the following are equivalent:
+
+
+                      0 < prefix[i + K] - prefix[i]   // Formula for sum of a window starting at i 
+              prefix[i] < prefix[i + K]               // Rearrange
+              prefix[i] < prefix[N] - X * (N - K - i) // Because tail end are Xs
+prefix[i] + X * (N - i) < prefix[N] + X * K           // Rearrange
+So track all the LHS you've seen so far for [0, i] and if the max is less than prefix[N] + X * (N - i), you can return N - i as your K.
+
+Python code: https://codeforces.com/contest/1358/submission/81555323
+
+→ Reply
+
+HeHao147989
+new, 4 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+Why return N-i? Can you explain more detailedly?
+
+→ Reply
+
+HeHao147989
+new, 3 hours ago, # ^ | Add to favourites  Vote: I like it +3 Vote: I do not like it
+Thanks I suddenly understand it !
+
+→ Reply
+
+Grey_Matter
+new, 91 minute(s) ago, # ^ | Add to favourites← Rev. 3    Vote: I like it 0 Vote: I do not like it
+Thanks for this explanation. I found it to be more practically reachable during a contest. Here's my C++ code: 81596230
+
+→ Reply
+
+vikas_404
+new, 4 hours ago, # ^ | Add to favourites← Rev. 2    Vote: I like it 0 Vote: I do not like it
+for(int i = 0; i < n; i++) { maxlimit[i] = (pref.rend() — upper_bound(pref.rbegin(), pref.rbegin() + (n + 1) / 2, (i == 0 ? 0 : pref[i — 1]))) — i; }
+
+Hi imachug I am not able to understand this code of yours. Could you please elaborate a bit?
+
+→ Reply
+
+imachug
+new, 119 minutes ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+upper_bound is a standard binary search function. However, it works only on increasing arrays, and that's not the case for us because x is negative. There are two solutions to this problem: either reverse the array beforehand or use reverse iterators which make upper_bound think that the array is actually reversed. The first solution is used in the Python implementation, the second one is used in C++.
+
+So, the following codes are equivalent (I haven't compiled them though so there might be some minor issues):
+
+for(int i = 0; i < n; i++) {
+    maxlimit[i] = (pref.rend() - upper_bound(pref.rbegin(), pref.rbegin() + (n + 1) / 2, (i == 0 ? 0 : pref[i — 1]))) - i;
+}
+auto revpref = pref;
+reverse(revpref.begin(), revpref.end());
+for(int i = 0; i < n; i++) {
+    maxlimit[i] = n - (upper_bound(revpref.begin(), revpref.begin() + (n + 1) / 2 - 1, (i == 0 ? 0 : pref[i - 1])) - revpref.begin());
+}
+Now to the code itself. I want to find such maximum $$$maxlimit[i]$$$ that $$$a[i] + \ldots + a[i + maxlimit[i] - 1] > 0$$$. We can rewrite this as $$$pref[i + maxlimit[i] - 1$$$ > pref[i — 1]$ (assuming $$$pref[-1] = 0$$$). So we just want to find the last position which is greater than some constant, which is equivalent to finding the first position which is greater than some constant in a reversed array, this is exactly what upper_bound does.
+
+→ Reply
+
+sanyam2248
+new, 3 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+How can you say that if p works then p-1 also works because there will an extra element s(p-1)(n-p).. So please can you explain that.
+
+→ Reply
+
+robert.barbu27
+new, 2 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+something similar i did too
+
+→ Reply
+
+kanishk779
+new, 2 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+imachug what does maxLimit signify in your solution?
+
+→ Reply
+
+imachug
+new, 119 minutes ago, # ^ | Add to favourites  Vote: I like it +1 Vote: I do not like it
+It's called $$$t[i]$$$ in the tutorial.
+
+→ Reply
+
+nivedh
+new, 5 minutes ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+why dont we directly check for k=(n+1)/2 if x<=0, and k=n for x>0...??
+Correct me if I am wrong.
+
+→ Reply
+
+imachug
+new, 4 minutes ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+It's enough to check that $$$k=n$$$ for $$$x>0$$$. But it's not enough to check $$$k=\lceil \frac{n}{2} \rceil$$$ for $$$x \le 0$$$, there's a countertest to this.
+
+→ Reply
+
+D1703
+16 hours ago, # | Add to favourites  Vote: I like it +132 Vote: I do not like it
+Good problems, pathetic memes.
+
+→ Reply
+
+ranveerrandhawa2468
+15 hours ago, # ^ | Add to favourites← Rev. 8    Vote: I like it -65 Vote: I do not like it
+reeeeeeeeeeeeeee downvote my comments u alll reeeeeeeeeeeeeeeee
+
+→ Reply
+
+ranveerrandhawa2468
+new, 6 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+Alright, guys, you need to make me the most down voted account of all time. Down vote the comment above and this.
+
+→ Reply
+
+Shivam_singh1731
+16 hours ago, # | Add to favourites  Vote: I like it 0 Vote: I do not like it
+Need more memes in upcoming tutorials
+
+→ Reply
+
+RomeoFantastik
+16 hours ago, # | Add to favourites  Vote: I like it +9 Vote: I do not like it
+Video Editorials for Problems C and D
+
+→ Reply
+
+hackerbaba
+16 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+For C, as given in the solution diagram, cant he go from 1 -> 3 -> 5 -> 8 -> 13 ?
+
+→ Reply
+
+kibitz_23
+16 hours ago, # ^ | Add to favourites  Vote: I like it +2 Vote: I do not like it
+We are trying to find different sums on way from 1 to 13. So the sum 1+3+5+8+13 has already been covered in 1 -> 2 ->5 ->9 ->13
+
+→ Reply
+
+hackerbaba
+16 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+Thank you!
+
+→ Reply
+
+Shahir_Abdullah
+16 hours ago, # | Add to favourites  Vote: I like it 0 Vote: I do not like it
+B explanation ?
+
+→ Reply
+
+imachug
+16 hours ago, # ^ | Add to favourites  Vote: I like it +4 Vote: I do not like it
+What exactly don't you understand? I might be able to help.
+
+→ Reply
+
+abichev
+16 hours ago, # | Add to favourites  Vote: I like it +22 Vote: I do not like it
+Very good problems! As a participant, I really enjoyed solving this contest! Especially I liked memes in the problems
+
+→ Reply
+
+stefdasca
+16 hours ago, # | Add to favourites  Vote: I like it +5 Vote: I do not like it
+Video tutorial for today's C
+
+Discord server
+
+→ Reply
+
+FenHarel
+16 hours ago, # | Add to favourites← Rev. 2    Vote: I like it 0 Vote: I do not like it
+is it possible to solve C using nCk (binomial coefficient) ?
+
+→ Reply
+
+imachug
+16 hours ago, # ^ | Add to favourites  Vote: I like it 0 Vote: I do not like it
+Do you mean the binomial coefficient?
+
+→ Reply
+`;
+
+    // convert the text into letters and alphabets.
+    text = text.split('');
+    console.log(text);
+
+
+    // now remove the enter and other special symbols,space etc.
+
+    function validChar(char){
+        // if the character is a-z or A-Z or 0-9 than keep ir or ignore it.
+
+        // this is regex.
+        return char.match(/[a-z0-9]/i)     // /i means ignore case
+    }
+
+    const lowercase = char => char.toLowerCase();
+
+    const instanceCounter = (counts,char) => {
+        // if the count of the char exists than increament it or set it to 1.
+        counts[char] ? counts[char] = counts[char] + 1 : counts[char] = 1;
+        return counts;
+    }
+
+    const result = text
+        .filter(validChar)
+        .map(lowercase)     // convert every letter to lowercase.
+        .reduce(instanceCounter,{})    // count each every letter. Count the frequency of the letters.
+        ;
+
+    console.log(result);
+
+    function sortByValue(a,b){
+        // a and b are 2 objects so compare second value of both objects.
+        return a[1]-b[1];
+    }
+
+    const sortedText = Object.entries(result).sort(sortByValue);
+    console.log(sortedText);
+    </script>
+</body>
+</html>

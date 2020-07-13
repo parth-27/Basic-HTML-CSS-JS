@@ -1,0 +1,17 @@
+{
+  "name": "face-detection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pixelated-face-DEMO.js",
+  "scripts": {
+    "start": "parcel face.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}

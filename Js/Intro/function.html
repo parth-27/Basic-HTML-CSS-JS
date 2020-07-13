@@ -1,0 +1,71 @@
+<!Doctype html>
+
+<html>
+    <head>
+        <title>Functions in JavaScript</title>
+    </head>
+<body>
+<script type = "text/javascript">
+// three types of functions in javacript.
+// 1. General Function. parameters are required.
+// No Arugment Function , Argument Function.
+// 2. Arroy Function. is a syntactically compact alternative to a regular function expression.
+// 3. High order function. example Array.map()
+
+// no argument function.
+// console.log() is used in printing in console only.(mostly for debugging).
+function first() {
+    alert("Hey It been a long time !!");
+}
+
+function greet(string) {
+    alert("Good Morning " + string);
+}
+
+//functions with two variables as a parameter.
+function multiple(one,two) {
+    document.write(one + " is better than " + two + "<br>");
+}
+
+//returning a statement from the function
+function returningAddition(a,b){
+    var c = a + b;
+    return c;
+}
+
+//Calling function from another function.
+function calling(){
+    greet("parth");
+    first();
+    multiple("javascript","c");
+    document.write( "Addition of 3 and 6 is " +returningAddition(3,6));
+}
+
+calling();
+
+// arroy function.
+let sayhello = () => {
+    return 'welcome to javascript world...';
+}
+console.log(sayhello())
+
+// high order function.
+let myNumberArray = ['1','2','3','4','5','6'];
+let mySquareRootArray = myNumberArray.map(Math.sqrt);
+console.log(mySquareRootArray);
+
+// recursive function.
+let factorial = (n) => {
+    if (n == 1) return 1;
+    else return n * factorial(n-1);
+}
+console.log(factorial(5));
+
+// let allows you to declare variables that are limited to a scope of a block statement, or expression on which it is used, unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope.
+</script>
+<form>
+    <input type = "button" value = "click Me" onclick="first();">
+</form>
+</body>
+</html>
+<!-- Value of the button will be displayed on the web page.  //-->

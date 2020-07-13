@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping an array</title>
+    <link rel="stylesheet" href="../../base.css">
+</head>
+<body>
+    <script>
+        const numbers = [10,45,1,465,15,565,135,98,351,391,36,023];
+        const name = "Parth Patel";
+        for (let index = 0; index < numbers.length; index++) {
+            console.log(numbers[index]);
+            // think why 023 is showing 19 while printing it.
+        }
+
+        // for of
+        // this loop will also iterate the special symbol.
+        for (const iterator of name) {
+            console.log(iterator);
+            // we can use of await keyword in the for of loop.
+        }
+
+        
+        // for in-- used for looping over the keys of the objects.
+        const person = {
+            name:"parth",
+            age:20
+        }
+        
+        
+        for (const key in person) {
+            console.log(key);
+        }
+        
+        const stats = {
+            feet:2,
+            arms:2,
+            eyes:2,
+            ears:2,
+            head:1
+        }
+
+        function human(name){
+            this.name = name;
+        }
+
+        human.prototype = stats;
+        const parth = new human('parth')
+        console.log(Object.keys(parth));    // it will display only name.
+
+        for (const key in parth) {
+            console.log(key);   // for in loop will display all the infos.
+        }
+        
+        
+        
+        //while loop
+        let i = 0
+        while(i<10){
+            console.log(i);
+            i++;
+        }
+
+    
+        // do while loop
+        do{
+            console.log(i);
+            i++;
+        }while(i<20)
+    </script>
+</body>
+</html>

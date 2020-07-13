@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>JavaScript in forms</title>
+</head>
+<body>
+<form name = "first">
+    <label>Username = <input type="text" name="username"><br></label>
+    Lastname = <input type="text" name="lastname"><br>
+    Password = <input type="password" name="password"><br>
+    <input type="checkbox" name="box">
+    <input type="button" value="Press Me" onclick="validator()">
+    <input type="submit" value="Submit" onsubmit="return checkforblank()"><br>
+</form>
+<script type="text/javascript">
+    //accessing different forms using javascript.
+    //forms are objects of document.
+    var x = document.forms[0].length;
+    document.write(x);
+//    var y = document.forms[0].elements[0].name;
+    var y = document.first.elements[0].name;
+    document.write(y);
+    
+    function validator() {
+        if (document.first.box.checked)
+            alert("Yes it is checked!!");
+        else
+            alert("No it is not checked!!");
+    }
+
+    function  checkforblank() {
+        if (document.first.username.value == "")
+        {
+            alert("Please enter your first name");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

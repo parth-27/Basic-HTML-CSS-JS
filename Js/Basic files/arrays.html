@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in Javascript</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+    <script>
+        // creating an array.
+        // const names = new Array(); 
+        const names = ['Scott', 'Jon', 'Thomas'];     // index start with 0.  names[0] = 'Scott'
+
+        console.log(typeof names);  // typeof names is object.
+        console.log(Array.isArray(names));      // return true if array is passed.
+        console.log(names.length);
+
+
+        names.push('Lux');      // this will change the orignal array and add Lux at the end of the array.
+        names.unshift('Jerry');     // Adding name in the Front of the array.   
+
+        const n2 = [...names, 'Lux'];    // creating copy and than changing the copy of the array.
+        const n3 = ['Jerry', ...names];  // adding at the start of the copy array.
+
+
+        // adding names in between of an array.
+        const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
+        const newBikes = [
+            ...bikes.slice(0, 2),
+            'benotto',
+            ...bikes.slice(2)
+        ];
+
+        // delete an element from the array.
+        const newBikes2 = [
+            ...newBikes.slice(0, 3),
+            ...newBikes.slice(4)
+        ];
+        console.log(newBikes2);
+
+        //
+        const comments = [
+            { text: 'Cool Beans', id: 123 },
+            { text: 'Love this', id: 133 },
+            { text: 'Neato', id: 233 },
+            { text: 'good bikes', id: 333 },
+            { text: 'so good', id: 433 },
+        ];
+
+        function deleteComment(id, comments) {
+            // first find the index of the item in the array
+            const commentIndex = comments.findIndex(comment => comment.id === id);
+            
+            // make a new array without that item in it
+            return [
+                ...comments.slice(0, commentIndex),
+                ...comments.slice(commentIndex + 1),
+            ];
+            // return our new array
+        }
+
+
+        // Mutation Method
+        const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        num.reverse();  // return the reverse of the num array. Will change the original array.
+        console.log(num);
+
+        // Immuatabe Method
+        // slice is mutable and splice is immutable.
+        const slice = num.slice(2, 4);   // index 2 is included and index 4 is not included. i.e 2 and 3.
+        console.log(slice);
+        console.log(num);
+
+        num.splice(3, 2);    // Deletes the index 3 and 4 .  First Argument is starting index and second is how many index.
+
+        // Anytime we want to use a mutation method and Not to mutate the original array, use an array copy.
+        const reverse = [...num];
+        reverse.reverse();
+        console.log(reverse);
+        console.log(num);
+    </script>
+</body>
+
+</html>

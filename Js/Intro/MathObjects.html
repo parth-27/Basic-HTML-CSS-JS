@@ -1,0 +1,35 @@
+<!Doctype html>
+
+<html>
+<head>
+    <title>Math Object in JavaScript</title>
+</head>
+<body>
+<script type="text/javascript">
+    //value of pi and eulers constant in maths.
+    document.write("Value of PI is " +Math.PI);
+    document.write("<br>");
+    document.write("Value of Eulers constant is " + Math.E);
+
+//    var n = prompt("Enter a number","");
+//    var answer = Math.sqrt(n);
+
+    //date objects in javascript.
+    function timeInterval()
+    {
+        document.write("chrissy");
+    }
+    setInterval("timeInterval()",1000); // second argument is in millisecond.
+
+    function printTime() {
+        var now = new Date();
+        var hours = now.getHours();
+        var seconds = now.getSeconds();
+        var date = now.getDate();
+        document.write(hours+" : "+seconds+" : " +date);
+    }
+
+    setInterval("printTime()",1000);
+</script>
+</body>
+</html>

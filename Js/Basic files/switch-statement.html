@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Statement is JavaScript</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+    <style>
+        .turt
+        {
+            position: relative;
+            --x:0px;
+            --y:0px;
+            --rotateX:0deg;
+            --rotate:0deg;
+            transform: translateX(var(--x)) translateY(var(--y)) rotate(var(--rotate)) rotateY(var(--rotateX));
+            transition: transform 0.2s;
+        }
+    </style>
+    <img src = "./turtle.png" width="200" alt="turtle" class="turt">
+    <script>
+        const turtle = document.querySelector('.turt');
+
+        let x = 0 ;
+        let y = 0 ;
+        const speed = 5;
+        let flipped = false;
+        let rotate = 0;
+        function handlekeyDown(event)
+        {
+            // only allow arrow key to work. we don't want other key to work.
+            if (!event.key.includes('Arrow')) { return;}
+
+            switch (event.key) 
+            {
+                case 'ArrowUp':  
+                    y -= 1;       
+                    rotate = (-90);
+                    flipped = false;
+                    break;
+                case 'ArrowDown':
+                    rotate = 90;
+                    flipped = false;    
+                    y += 1;
+                    break;
+                case 'ArrowLeft':         
+                    x -= 1;
+                    flipped = true;
+                    rotate = 0;
+                    break;
+                case 'ArrowRight':         
+                    x += 1;
+                    flipped = false;
+                    rotate = 0;
+                    break;
+                default:
+                    console.log("Not a Variable Move");
+                    break;
+            }
+
+            // accessing css properties.
+            //  turtle.style['--x'] = `${x}px`;     // this are allowed for only predefinded attributes
+            //  turtle.style['--y'] = `${x}px`;
+
+            turtle.setAttribute('style',`
+            --x:${x*speed}px;
+            --y:${y*speed}px;
+            --rotateX:${flipped? '180deg':'0'};
+            --rotate:${rotate}deg;
+            `);
+
+        }
+
+        window.addEventListener('keydown',handlekeyDown);
+    </script>
+</body>
+</html>

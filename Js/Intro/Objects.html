@@ -1,0 +1,45 @@
+<!Doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!-- Use meta tag to use Unicode UTF-8 character encoding.
+     There is an attribute lang in html tag which is used to set the language of the web page.
+ -->
+    <title>Objects in JavaScript</title>
+<script type="text/javascript">
+    function person(name,age){
+        this.name = name;
+        this.age = age;
+        // don't add paranthesis in the method.
+        this.yearsUntilRetire = yearsLeft;
+    }
+
+    //creating object using constructor function.
+    var parth = new person("parth",20);
+    var chrissy = new person("chrissy",24);
+
+// object initializers are lot more faster than constructor function.
+    javascript = {language:"JavaScript",work:"Connector between html and CSS"};     //javascript is an object using object initializers.
+    shirley = {name : "Shirley Setia" , age : 24};
+
+// creating methods.
+    function yearsLeft(){
+        var numYears = 65 - this.age;
+        return numYears;
+    }
+</script>
+</head>
+<body>
+<script type = "text/javascript">
+// object have method and properties.
+// In document.write() document is an object and write is its method.
+    document.write(parth.name);
+    document.write("<br>");
+    document.write((chrissy.name));
+    document.write("<br>");
+    document.write("I love " +shirley.name);
+    document.write("<br>Retirement of chrissy " + chrissy.yearsUntilRetire());
+</script>
+</body>
+</html>

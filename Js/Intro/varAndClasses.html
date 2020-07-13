@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Variables and Classes in JavaScript</title>
+</head>
+<body>
+<script type="text/javaScript">
+// var - used to declare variables but the scope of variables is function block. if declared globally, scope is global.
+// let - used to declare variables but variables are block scoped. block is area between {}
+// const - used to declare variables but variables can't be reassigned it doesn't means they are immutable. declared variables are not immutable. they are also block scoped.
+function usingvar(){
+    for(var i = 0;i<2;i++)
+    {
+        console.log('In loop : '+ i);
+    }
+    console.log('After loop : '+ i)
+}
+usingvar();
+// same will be in the let.
+
+// creating class and object in class. concept of class was introduced in ES6.
+// this will always point to the current object.
+class Vehicle {
+    constructor(name,model)     // here we don't declare variable here.
+    {
+        this.name = name;
+        this.model = model;
+    }
+
+    showModel(){
+        console.log("Model of " + this.name + " is : " + this.model);
+    }
+}
+// creating object of the class.
+let car = new Vehicle("Audi","R8");
+document.write(car.name);
+car.showModel();
+
+
+</script>
+</body>
+</html>

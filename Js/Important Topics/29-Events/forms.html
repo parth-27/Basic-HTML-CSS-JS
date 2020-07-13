@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript and Forms</title>
+    <link rel="stylesheet" href="./../../base.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form name="signup">
+            <a class="link" href="https://www.youtube.com">You Tube</a>
+            <br>
+            <label for="name">Name</label>
+            <input required type="text" id="name" name="name" value="Parth Patel">
+
+            <!--value will contain the default value in the form.
+                place required in the input for compulsory fields.
+            -->
+
+            <label for="email">Email</label>
+            <input required type="text" id="email" name="email" value="parthpatel@gmail.com">
+
+            <input required type="checkbox" id="agree" name="agree">
+            <label  for="agree">I agree to the terms and Conditions</label>
+            <hr>
+            <button type="submit">Submit</button>
+
+            <!--Buttons are to be used for the actions that happens inside of the applications.
+                Links are used to change the page.
+            -->
+
+        </form>
+    </div>
+
+    <!-- If we need something to be a button if its not a button then add role = "button" 
+        adding tabindex = "0" means we can access it by our tab button-->
+    <img class="pic" role="button" tabindex="0" src="https://picsum.photos/200" alt="nice">
+
+    <script src="./forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If Statements</title>
+    <link rel="stylesheet" href="./../base.css">
+</head>
+
+<body>
+    
+    <h2>Truthy Values</h2>
+    <ol>
+        <li>0</li>
+        <li>-10</li>
+        <li>full string</li>
+        <li>string of 0, string of space</li>
+        <li>Non Empty Array because of lenght</li>
+        <li>Empty Object is truthy</li>
+    </ol>
+
+    <h2>Falsy Values</h2>
+    <ol>
+        <li>0</li>
+        <li>Undefined</li>
+        <li>Null</li>
+        <li>Nan</li>
+        <li>Empty String</li>
+    </ol>
+        <script>
+
+            // coercion means changing a variable of other type into a boolean value i.e is true or false.
+
+            function slugify(sentence, lowercase) {
+                // here /\s/g is a regex. \s search for space and g means search in the whole string. Regex always start and end with / foward slash
+                if (lowercase) {
+                    return sentence.replace(/\s/g, '-').toLowerCase();
+                } else {
+                    return sentence.replace(/\s/g, '-');
+                }
+            }
+
+            // ternary if
+            const count = 2;
+            let word;
+            word = (count === 1)? "item":"items";
+            console.log(`You have ${count} ${word} in your cart.`);
+
+            // AND AND Trick
+            const isAdmin = true;
+            function Admin()
+            {
+                console.log("Congrats you are promoted to Admin");
+            }
+
+            // isAdmin ? Admin(): null;     // below is another way to write in shortcut.
+            isAdmin && Admin();
+            // if isAdmin is true then and then only Admin function will run.
+
+
+            
+        </script>
+</body>
+
+</html>

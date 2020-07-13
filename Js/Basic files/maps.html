@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps in Javascript</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+    <ul class="prizes"></ul>
+    <script>
+
+        const person = {
+            name:"Parth",
+            age:20
+        }
+
+        // syntax for map is 
+        const myMap = new Map();
+        //.set()
+        myMap.set('name','parth');  // key of map can be of anytype and is not dependent on values.
+        myMap.set(person,'Object')
+        console.log(myMap);
+
+        // Order is maintain in the Map while order is not maintain in the objects.
+        const score = 400;
+        const prizes = new Map();
+        prizes.set(100,'Bear');
+        prizes.set(200,'Duck');
+        prizes.set(400,'Car');
+
+        console.log(`You have win a ${prizes.get(score)}`);
+
+        // looping over the map.
+        const ul = document.querySelector('.prizes');
+        //prizes.forEach(entry =>{console.log(entry)});
+        for(const [key,values] of prizes)
+        {
+            console.log(key,values);     // it will display a array.
+            const li = `<li>${key} - ${values}</li>`;
+            ul.insertAdjacentHTML('beforeend', li);
+        }
+
+        // const f = new Map([[1,2,],[3,4]]);
+
+        // myMap.delete(name);
+
+
+        // converting map to object is
+        // const p = Object.fromEntries(myMap);
+    </script>
+</body>
+</html>

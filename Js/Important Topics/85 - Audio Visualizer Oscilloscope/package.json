@@ -1,0 +1,14 @@
+{
+  "name": "audi-visualizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sound.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
+}
