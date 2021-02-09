@@ -1,2 +1,2 @@
-# Basic-HTML-CSS-JS
-Some basic HTML,CSS and JS files.
+# Web Basics
+Some basics stuff regarind HTML,CSS and JS ...
